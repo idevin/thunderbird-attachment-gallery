@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Attachment Gallery",
+  "description": "Preview every attachment in a conversation without opening a separate application.",
+  "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "gallery-attachments@localhost",
+      "strict_min_version": "128.0",
+      "strict_max_version": "160.*"
+    }
+  },
+  "icons": {
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "permissions": ["messagesRead"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Attachment gallery",
+    "default_icon": {
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    }
+  },
+  "message_display_action": {
+    "default_title": "Attachment gallery",
+    "default_icon": {
+      "32": "icons/icon-32.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self' blob:; frame-src 'self' blob:"
+  },
+  "experiment_apis": {
+    "galleryThread": {
+      "schema": "experiment/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["galleryThread"]],
+        "script": "experiment/parent.js"
+      }
+    }
+  }
+}

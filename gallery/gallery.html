@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attachment gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>Attachment gallery</h1>
+        <p id="subject" class="subject"></p>
+      </div>
+      <label class="inline-toggle">
+        <input id="show-inline" type="checkbox">
+        Show inline attachments
+      </label>
+    </header>
+    <p id="truncated" class="truncated" hidden>Showing the latest 200 messages in this conversation.</p>
+    <section id="summary" class="summary" hidden>
+      <p id="totals"></p>
+      <p id="kinds"></p>
+    </section>
+    <nav id="filters" class="filters" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="image" aria-pressed="false">Images</button>
+      <button type="button" data-filter="document" aria-pressed="false">Documents</button>
+      <button type="button" data-filter="media" aria-pressed="false">Media</button>
+      <button type="button" data-filter="other" aria-pressed="false">Other</button>
+    </nav>
+    <p id="status" class="status" role="status">Loading attachments…</p>
+    <main id="list"></main>
+    <dialog id="preview">
+      <div class="preview-bar">
+        <h2 id="preview-title"></h2>
+        <div class="preview-actions">
+          <button type="button" id="preview-save">Save</button>
+          <button type="button" id="preview-open">Open in application</button>
+          <button type="button" id="preview-close">Close</button>
+        </div>
+      </div>
+      <p id="preview-error" class="preview-error" hidden></p>
+      <div id="preview-body" class="preview-body"></div>
+    </dialog>
+    <script type="module" src="gallery.js"></script>
+  </body>
+</html>

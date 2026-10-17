@@ -1,0 +1,35 @@
+[
+  {
+    "namespace": "galleryThread",
+    "description": "List the messages that belong to one conversation.",
+    "functions": [
+      {
+        "name": "list",
+        "type": "function",
+        "description": "Return WebExtension message ids for the conversation containing messageId, oldest first.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "messageId",
+            "type": "integer",
+            "description": "Id of a message already returned by the messages API."
+          }
+        ],
+        "returns": {
+          "type": "object",
+          "properties": {
+            "ids": {
+              "type": "array",
+              "items": { "type": "integer" },
+              "description": "Message ids in chronological order."
+            },
+            "truncated": {
+              "type": "boolean",
+              "description": "True when the conversation was longer than the returned list."
+            }
+          }
+        }
+      }
+    ]
+  }
+]
